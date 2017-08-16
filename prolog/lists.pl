@@ -11,6 +11,7 @@ front_to_back([Head|Tail], Revlist):-
   concatenate(Tail, [Head], Revlist).
 
 %% OK that worked, recurse it now.
+%% from now on I'll use H for Head and T for Tail.
 %% 0 elements
 reverse([],[]).
 %% 1 element
@@ -26,4 +27,13 @@ reverse([X|[YH|[YTH|YTT]]], Revlist):-
 %% "native code procedure reverse/2 cannot be redefined (ignored)"
 
 %% Moving on...
-%%
+%% 2nd exercise: smallest element of list
+smallest([],[]).
+smallest([E],[E]).
+smallest([X,Y],Y):- Y <= X.
+smallest([X,Y],X):= X <= Y.
+smallest([H|T], Smallest):-
+  Smallest <= H, smallest(T, Smallest).
+%% Here I've said for Smallest to actually be the smallest in the list it
+%% must be smaller than the head and the smallest element in the tail.
+
