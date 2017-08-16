@@ -20,7 +20,7 @@ reverse([X],[X]).
 reverse([X,Y],[Y,X]).
 %% >2 elements
 reverse([X|[YH|[YTH|YTT]]], Revlist):-
-  reverse([YH|[YTH,YTT]], RevTail), concatenate(RevTail, [H], RevList).
+  reverse([YH|[YTH,YTT]], RevTail), concatenate(RevTail, [X], RevList).
 
 %% THis works, but I get this compliation error for whatever the 1st reverse
 %% rule is:
