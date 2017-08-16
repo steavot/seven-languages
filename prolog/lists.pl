@@ -30,13 +30,10 @@ reverse([X|[YH|[YTH|YTT]]], Revlist):-
 %% 2nd exercise: smallest element of list
 %% smallest([],[]).
 smallest([E],[E]).
-%% smallest([X,X],X).
-%% smallest([X,Y],Y):-
-%%   Y < X.
-%% smallest([X,Y],X):-
-%%   X < Y.
+smallest([X,X],X).
+smallest([X,Y],Y):-
+  Y =< X.
+smallest([X,Y],X):-
+  X =< Y.
 smallest([H|T], Smallest):-
-  smallest(T, Smallest), Smallest < H.
-%% Here I've said for Smallest to actually be the smallest in the list it
-%% must be smaller than the head and the smallest element in the tail.
-
+  smallest(T, Smallest), Smallest =< H.
